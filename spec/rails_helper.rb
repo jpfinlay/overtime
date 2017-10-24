@@ -8,6 +8,10 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 
+# Deveise allows us to mimick a user loggin in...
+include Warden::Test::Helpers
+Warden.test_mode!
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
