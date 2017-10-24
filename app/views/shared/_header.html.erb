@@ -1,0 +1,27 @@
+<header class="header clearfix">
+  <h3 class="text-muted">Overtime</h3>
+  <nav>
+    <div class="dropdown show float-right">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if user_signed_in? %>
+          <%= current_user.first_name %>
+        <% else %>
+          Account
+        <% end %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+      </div>
+    </div>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link active" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Time Entries", posts_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </nav>
+</header>
