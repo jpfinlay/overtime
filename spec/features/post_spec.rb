@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 describe "navigate" do
+  before do
+    User.delete_all
+    @user = User.new  email: "jonsnow@example.com",
+                        password: "secret123",
+                        password_confirmation: "secret123",
+                        first_name: "Jon",
+                        last_name: "Snow"
+    login_as(@user, scope: :user)
+  end
+
   describe "index" do
     it "can be reached successfully" do
       visit posts_path
@@ -15,6 +25,14 @@ describe "navigate" do
     it "has the heading 'Posts'" do
       visit posts_path
       expect(page).to have_content(/Posts/)
+    end
+
+    it "displays a table of posts" do
+	    post1 = Post.create date: Date.today, rationale: "Rationale1", user_id: @user.id
+	    post2 = Post.create date: Date.today, rationale: "Rationale2", user_id: @user.id
+      visit posts_path
+      expect(page).to have_content("Rationale1")
+      #expect(page).to have_content("#{post2.rationale}")
     end
   end
 

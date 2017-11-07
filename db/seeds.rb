@@ -1,7 +1,7 @@
-10.times do |user|
-  User.create!  email: "#{user}-user@example.com",
-                first_name: "#{user}-first",
-                last_name: "#{user}-last",
+1.times do |user|
+  User.create!  email: "jsnow@example.com",
+                first_name: "Jon",
+                last_name: "Snow",
                 password: "secret123",
                 password_confirmation: "secret123"
 end
@@ -12,7 +12,7 @@ end
 end
 
 puts "*".center(50, "*")
-puts "10 users created.".center(50)
+puts "1 user created.".center(50)
 puts "*".center(50, "*")
 
 puts "*".center(50, "*")

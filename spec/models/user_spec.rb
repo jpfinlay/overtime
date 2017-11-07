@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
       password: "secret123",
       password_confirmation: "secret123",
       first_name: "John",
-      last_name: "Doe"
+      last_name: "Snow"
     end
 
     it "can be created" do
