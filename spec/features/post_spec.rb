@@ -57,6 +57,21 @@ describe "navigate" do
     end
   end
 
+  describe "delete" do
+    before do
+      Post.delete_all
+      @user = FactoryBot.create :user
+      login_as(@user, scope: :user)
+      @post = FactoryBot.create :post
+    end
+ 
+    it "can be deleted when clicking 'Delete' on the index page" do
+      visit posts_path
+      click_link("delete_post_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe "edit" do
     before do
       Post.delete_all
