@@ -35,14 +35,16 @@ describe "navigate" do
       @user = FactoryBot.create :user
  
       login_as(@user, scope: :user)
-      visit new_post_path
+      visit root_path
     end
  
-    it "has a new form that can be reached" do
+    it "has a new form that can be reached from the root url" do
+      click_link("Create New Entry")
       expect(page.status_code).to eq(200)
     end
  
     it "accepts a date and rationale and submits the form" do
+      visit new_post_path
       fill_in "post[date]", with: Date.today
       fill_in "post[rationale]", with: "A good rationale"
       click_on "Save"
@@ -50,6 +52,7 @@ describe "navigate" do
     end
  
     it "belongs to a user" do
+      visit new_post_path
       fill_in "post[date]", with: Date.today
       fill_in "post[rationale]", with: "Some rationale"
       click_on "Save"
