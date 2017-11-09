@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:notice] = "Post successfully created!"
       redirect_to @post
     else
       render "new"
@@ -24,7 +25,8 @@ class PostsController < ApplicationController
   
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: "Successfully edited your post."
+      flash[:notice] = "Post successfully edited!"
+      redirect_to @post
     else 
       render :edit
     end
@@ -35,7 +37,8 @@ class PostsController < ApplicationController
 
   def destroy
     @post.delete
-    redirect_to posts_path, notice: "Successfully deleted your post."
+      flash[:notice] = "Post deleted."
+    redirect_to posts_path
   end
 
   private
@@ -45,6 +48,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:date, :rationale)
+    params.require(:post).permit(:date, :rationale, :user_id)
   end
 end
