@@ -16,3 +16,6 @@
 
 ## UI:
 - Bootstrap -> formatting
+
+## TODO:
+- Fix bug that renders 'new' Post form twice, obscuring error messages
