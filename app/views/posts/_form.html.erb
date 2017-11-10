@@ -1,4 +1,5 @@
 <%= form_with model: @post, class: "form-horizontal" do |f| %>
+  <%= render "shared/errors.html.erb", object: @post %>
   <div class="form-group">
     <%= f.label :date, class: "col-2 col-form-label" %>	  
     <%= f.date_field :date, class: "form-control" %>
