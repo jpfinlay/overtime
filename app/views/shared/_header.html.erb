@@ -2,29 +2,31 @@
   <h3 class="text-muted">Overtime</h3>
   <nav>
     <div class="dropdown show float-right">
+      <% if user_signed_in? %>
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <% if user_signed_in? %>
-          <%= current_user.full_name %>
-        <% else %>
-          Account
-        <% end %>
+        <%= current_user.full_name %>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "TODO: Dashboard", root_path, class: "dropdown-item" %>
       </div>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "nav-link #{active?(new_user_session_path)}" %>
+      <% end %>
     </div>
 
     <ul class="nav nav-pills">
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link #{active?(root_path)}" %>
       </li>
+      <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "Time Entries", posts_path, class: "nav-link #{active?(posts_path)}" %>
       </li>
       <li class="nav-item">
         <%= link_to "Create New Entry", new_post_path, class: "nav-link #{active?(new_post_path)}" %>
       </li>
+      <% end %>
     </ul>
   </nav>
 </header>
