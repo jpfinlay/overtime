@@ -20,3 +20,4 @@
 
 ## TODO:
 - Fix bug that renders 'new' Post form twice, obscuring error messages
+- Restrict access to Admin Dashboartds to admin users only
