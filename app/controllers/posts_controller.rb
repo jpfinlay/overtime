@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: "Post successfully created!"
     else
-      render "new"
+      render :new
     end
   end
 
@@ -25,8 +25,7 @@ class PostsController < ApplicationController
   
   def update
     if @post.update(post_params)
-      flash[:notice] = "Post successfully edited!"
-      redirect_to @post
+      redirect_to @post, notice: "Post successfully updated!"
     else 
       render :edit
     end
@@ -36,9 +35,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.delete
-      flash[:notice] = "Post deleted."
-    redirect_to posts_path
+    if @post.delete
+      redirect_to posts_path, notice: "Post was deleted."
+    end
   end
 
   private
