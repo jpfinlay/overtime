@@ -3,8 +3,8 @@
 ## Key requirement: company needs documentation that salaried employees did or did not get overtime each week
 
 ## Models:
-- x Post -> date:date rationale:text
-- x User -> Devise
+- ~~Post -> date:date rationale:text~~
+- ~~User -> Devise~~
 - AdminUser -> STI
 
 ## Features:
@@ -15,9 +15,9 @@
 - Needs to be documented if employee *did not* log overtime
 
 ## UI:
-- x Bootstrap -> formatting
+- ~~Bootstrap -> formatting~~
 - Font Awesome Icons
 
 ## TODO:
-- Fix bug that renders 'new' Post form twice, obscuring error messages
+- ~~Fix bug that renders 'new' Post form twice, obscuring error messages~~
 - Restrict access to Admin Dashboartds to admin users only
