@@ -11,7 +11,9 @@ class UserDashboard < Administrate::BaseDashboard
     posts: Field::HasMany,
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: PasswordField,
+    password_confirmation: PasswordField,
+#    encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
@@ -42,11 +44,12 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :posts,
     :id,
+    :type,
     :first_name,
     :last_name,
     :email,
+    :posts,
 #    :encrypted_password,
     :reset_password_token,
     :reset_password_sent_at,
@@ -56,7 +59,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_at,
     :current_sign_in_ip,
     :last_sign_in_ip,
-    :type,
     :created_at,
     :updated_at,
   ].freeze
@@ -66,7 +68,6 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
 #    :posts,
-    :email,
 #    :encrypted_password,
 #    :reset_password_token,
 #    :reset_password_sent_at,
@@ -78,6 +79,9 @@ class UserDashboard < Administrate::BaseDashboard
 #    :last_sign_in_ip,
     :first_name,
     :last_name,
+    :email,
+    :password,
+    :password_confirmation,
     :type,
   ].freeze
 
