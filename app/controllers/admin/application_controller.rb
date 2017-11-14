@@ -9,8 +9,9 @@ module Admin
     before_action :authenticate_user!
     before_action :authenticate_admin
 
-    def authenticate_admin
-      unless current_user.try(:type) == 'AdminUser'
+    def authenticate_admin\
+      user_type = current_user.try(:type)
+      unless Admin.admin_types.include?(user_type)
         flash[:notice] = "You are not authorized to access this page."
         redirect_to root_path
       end
@@ -21,5 +22,11 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+  end
+
+  private
+
+  def self.admin_types
+    ['AdminUser']
   end
 end
