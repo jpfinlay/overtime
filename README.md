@@ -20,6 +20,7 @@
 
 ## TODO:
 - ~~Fix bug that renders 'new' Post form twice, obscuring error messages~~
-- Restrict access to Admin Dashboartds to admin users only
+- ~~Restrict access to Admin Dashboartds to admin users only~~
 - Create shared flash notice partial
 - Distinguish between different flash notices: red for alerts, green for success and blue for information
+- Add navbar to Admin Dashboard views
