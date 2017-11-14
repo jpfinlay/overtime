@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 describe "admin dashboard" do
-  it "can be reached successfully" do
-    visit admin_root_path
-    expect(page.status_code).to eq(200)
-  end
 
   it "does not allow access to non-admin users" do
     visit admin_root_path
@@ -17,5 +13,12 @@ describe "admin dashboard" do
     visit admin_root_path
     expect(current_path).to eq(root_path)
     expect(page).to have_content("You are not authorized to access this page.")
+  end
+
+  it "it can be reached by an admin user" do
+    admin_user = FactoryBot.create(:admin_user)
+    login_as(admin_user, :scope => :user)
+    visit admin_root_path
+    expect(current_path).to eq(admin_root_path)
   end
 end
