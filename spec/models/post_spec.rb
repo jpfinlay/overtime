@@ -15,5 +15,9 @@ RSpec.describe Post, type: :model do
       @post.rationale = nil
       expect(@post).to_not be_valid
     end
+
+    it "has a default status of 'Submitted'" do
+      expect(@post.submitted?).to be true
+    end
   end
 end

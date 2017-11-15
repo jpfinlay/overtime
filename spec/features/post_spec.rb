@@ -43,12 +43,13 @@ describe "navigate" do
       expect(page.status_code).to eq(200)
     end
  
-    it "accepts a date and rationale and submits the form" do
+    it "accepts a date and rationale and submits the form with the default status 'Submitted'" do
       visit new_post_path
       fill_in "post[date]", with: Date.today
       fill_in "post[rationale]", with: "A good rationale"
       click_on "Save"
       expect(page).to have_content("A good rationale")
+      expect(page).to have_content("submitted")
     end
  
     it "belongs to a user" do
