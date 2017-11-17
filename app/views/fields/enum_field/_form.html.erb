@@ -2,5 +2,5 @@
   <%= f.label field.attribute %>
 </div>
 <div class="field-unit__field">
-  <%= f.text_field field.attribute %>
+  <%= f.select field.attribute, field.select_field_values(f) %>
 </div>
