@@ -21,10 +21,10 @@
       </li>
       <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Time Entries", posts_path, class: "nav-link #{active?(posts_path)}" %>
+        <%= link_to "My Entries", posts_path, class: "nav-link #{active?(posts_path)}" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Create New Entry", new_post_path, class: "nav-link #{active?(new_post_path)}" %>
+        <%= link_to "New Entry", new_post_path, class: "nav-link #{active?(new_post_path)}" %>
       </li>
       <% end %>
     </ul>
