@@ -39,7 +39,7 @@ describe "navigate" do
     end
  
     it "has a new form that can be reached from the root url" do
-      click_link("Create New Entry")
+      click_link("New Entry")
       expect(page.status_code).to eq(200)
     end
  
