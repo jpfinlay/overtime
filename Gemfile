@@ -34,3 +34,4 @@ end
 
 gem 'devise', '~> 4.3'
 gem 'administrate', '~> 0.8.1'
+gem 'pundit', '~> 1.1'
