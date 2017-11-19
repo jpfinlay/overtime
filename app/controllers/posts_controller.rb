@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to @post, success: "Post successfully created!"
+      redirect_to @post, notice: "Post successfully created!"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     authorize @post
     
     if @post.update(post_params)
-      redirect_to @post, success: "Post successfully updated!"
+      redirect_to @post, notice: "Post successfully updated!"
     else 
       render :edit
     end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.delete
-      redirect_to posts_path, success: "Post successfully deleted!"
+      redirect_to posts_path, notice: "Post successfully deleted!"
     end
   end
 
