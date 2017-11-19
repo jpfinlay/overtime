@@ -1,1 +1,8 @@
-<%= @post.inspect %>
+<h1>Entry #<%= "#{@post.id}" %></h1>
+
+<p>Entry date: <%= @post.date %></p>
+<p>Rationale: <%= @post.rationale %></p>
+<p>Status: <%= @post.status %></p>
+
+<%= link_to "My Entries", posts_path, class: "btn btn-primary" %>
+
