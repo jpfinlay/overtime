@@ -25,3 +25,4 @@
 - ~~Distinguish between different flash notices: red for alerts, green for success and blue for information~~
 - Fix flahsh not displaing for creating/updating/deleting posts.
 - Add navbar to Admin Dashboard views
+- Prevent users viewing other users' posts via the URL
